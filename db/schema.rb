@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_15_103801) do
+ActiveRecord::Schema.define(version: 2022_07_15_105519) do
 
   create_table "students", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 2022_07_15_103801) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "address"
+    t.integer "contact_number"
+    t.date "date_of_birth"
+    t.string "standard"
+    t.string "blood_group"
+    t.string "mother_name"
+    t.string "father_name"
     t.index ["email"], name: "index_students_on_email", unique: true
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
   end
@@ -32,6 +39,7 @@ ActiveRecord::Schema.define(version: 2022_07_15_103801) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_admin?", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
