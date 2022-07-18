@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_15_125623) do
+ActiveRecord::Schema.define(version: 2022_07_18_130432) do
 
   create_table "academics", force: :cascade do |t|
     t.string "exam_type"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2022_07_15_125623) do
     t.string "blood_group"
     t.string "mother_name"
     t.string "father_name"
+    t.string "name"
     t.index ["email"], name: "index_students_on_email", unique: true
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
   end

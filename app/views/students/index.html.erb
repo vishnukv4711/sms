@@ -1,0 +1,25 @@
+<h1>Students listing page</h1>
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>address</th>
+      <th>contact number</th>
+      <th>date of birth</th>
+      <th>class</th>
+      <th>blood group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@students.each do |student| %>
+      <tr>
+        <td><%=student.name %></td>
+        <td><%=student.address %></td>
+        <td><%=student.contact_number %></td>
+        <td><%=student.date_of_birth %></td>
+        <td><%=student.standard %></td>
+        <td><%=student.blood_group %></td>
+      </tr>
+    <%end %>
+  </tbody>
+</table>

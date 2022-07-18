@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2>Add Student</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "students/shared/error_messages", resource: resource %>
@@ -21,8 +21,43 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_area :address, autofocus: true, autocomplete: "address" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :contact_number %><br />
+    <%= f.text_field :contact_number, autofocus: true, autocomplete: "contact_number" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_of_birth %><br />
+    <%= f.email_field :date_of_birth, autofocus: true, autocomplete: "dob" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :standard %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Add" %>
   </div>
 <% end %>
 
