@@ -1,25 +1,35 @@
-<h1>Students listing page</h1>
-<table>
-  <thead>
-    <tr>
-      <th>name</th>
-      <th>address</th>
-      <th>contact number</th>
-      <th>date of birth</th>
-      <th>class</th>
-      <th>blood group</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%@students.each do |student| %>
-      <tr>
-        <td><%=student.name %></td>
-        <td><%=student.address %></td>
-        <td><%=student.contact_number %></td>
-        <td><%=student.date_of_birth %></td>
-        <td><%=student.standard %></td>
-        <td><%=student.blood_group %></td>
+<h1 align="center">Students listing page</h1>
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr class="table-dark">
+        <th scope="col">Id</th>
+        <th scope="col">First name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">Standard</th>
+        <th scope="col", colspan="2"></th>
       </tr>
-    <%end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <%@students.each do |student| %>
+        <tr>
+          <th scope="row"><%=student.id %></th>
+          <td><%=student.first_name.capitalize %></td>
+          <td><%=student.last_name.capitalize %></td>
+          <td><%=student.standard.capitalize %></td>
+          <td role="group" aria-label="Basic outlined example">
+            <a href=<%=student_path(student)%> , class="btn btn-outline-success">
+              <i class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></i> Show
+            </a>
+          </td>
+          <td role="group" aria-label="Basic outlined example">
+            <a href=<%=edit_student_path(student)%> , class="btn btn-outline-warning">
+              <i class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></i> edit
+            </a>
+          </td>
+        </tr>
+      <%end %>
+    </tbody>
+  </table>
+</div>
