@@ -1,84 +1,62 @@
 <h1 align="center", style="margin-bottom: 50px">Student's info</h1>
+
 <div class="container">
-  <form>
 
-    <div class="row g-3">
-      <div class="col mb-3">
-        <label for="FirstName" class="form-label">First name</label>
-        <input type="text" class="form-control" aria-label="First name">
+  <%#=form_with(scope: :student, url: students_path method: :post, local: true) do |f| %>
+  <%=form_with(model: @student, local: true) do |f| %>
+
+    <div class="row mb-3">
+
+      <div class="col-md-6">           <!--first col takes 5 grid-->
+        <%=f.label :first_name, class: "col-form-label"%>
+        <%=f.text_field :first_name, class: "form-control form-control-lg"%>
       </div>
-      <div class="col mb-3">
-        <label for="LastName" class="form-label">Last name</label>
-        <input type="text" class="form-control"aria-label="Last name">
+      <div class="col-md-6">
+        <%=f.label :last_name, class: "col-form-label"%>
+        <%=f.text_field :last_name, class: "form-control form-control-lg"%>
       </div>
-    </div>
-
-    <div class="col mb-3">
-      <label for="Address" class="form-label">Address</label>
-      <input type="text" class="form-control"aria-label="Address">
-    </div>
-
-
-
-    <div class="row g-3">
-      <div class="col-sm-9 mb-3">
-        <label for="Email" class="form-label">Email</label>
-        <input type="text" class="form-control" aria-label="Email">
+      <div class="col-md-12">
+        <%=f.label :address, class: "col-form-label"%>
+        <%=f.text_area :address, class: "form-control form-control-lg"%>
       </div>
-      <div class="col-sm mb-3">
-        <label for="Phone Number" class="form-label">Phone number</label>
-        <input type="text" class="form-control" aria-label="Phone">
+      <div class="col-md-9">
+        <%=f.label :email, class: "col-form-label"%>
+        <%=f.text_field :email, class: "form-control form-control-lg"%>
       </div>
-    </div>
+      <div class="col-md-3">
+        <%=f.label :contact_number, class: "col-form-label"%>
+        <%=f.text_field :contact_number, class: "form-control form-control-lg"%>
+      </div>
+      <div class="col-md-5">
+        <%=f.label :mother_name, class: "col-form-label"%>
+        <%=f.text_field :mother_name, class: "form-control form-control-lg"%>
+      </div>
+      <div class="col-md-5">
+        <%=f.label :father_name, class: "col-form-label"%>
+        <%=f.text_field :father_name, class: "form-control form-control-lg"%>
+      </div>
+      <div class="col-md-2">
+        <%=f.label :date_of_birth, class: "col-form-label"%>
+        <%= f.date_field :date_of_birth, class: "form-control form-control-lg"%>
+      </div>
+      <div class="col-md-6">
+        <%=f.label :select_the_class, class: "col-form-label"%>
+        <%= f.select :city, ["Berlin", "Chicago", "Madrid"] %>
+
+        <%=f.select :select_the_class, class: "form-select form-select-lg"%>
+      </div>
+      <div class="col-md-6">
+        <%=f.label :select_the_blood_group, class: "col-form-label"%>
+        <%=f.text_field :select_the_blood_group, class: "form-control form-control-lg", placeholder: "dropdown"%>
+      </div>
 
 
-    <div class="row g-3">
-
-      <div class="col-5 mb-5">
-        <label for="Father name" class="form-label">Father name</label>
-        <input type="text" class="form-control" aria-label="Father name">
-      </div>
-      <div class="col-5 mb-5">
-        <label for="Mother name" class="form-label">Mother name</label>
-        <input type="text" class="form-control" aria-label="Mother name">
-      </div>
-      <div class="col">
-        <label for="DateOfBirth" class="form-label">Date of birth</label><br>
-        <input type="date" id="date_of_birth" name="date_of_birth">
+      <div align="right">
+        <%#=link_to 'submit', students_path, method: :post %>
+<!--        <button type="submit" class="btn btn-primary">Submit</button>-->
+        <%=f.submit %>
       </div>
 
-    </div>
-
-
-    <div class="row g-3">
-      <div class="col-lg mb-3 mt-3">
-        <select class="form-select" aria-label="Default select example">
-          <option selected>Select the class</option>
-          <option value="1"> class I</option>
-          <option value="2">class II</option>
-          <option value="3">class III</option>
-          <option value="4">class IV</option>
-          <option value="5">class V</option>
-          <option value="6">class VI</option>
-          <option value="7">class VII</option>
-          <option value="8">class VIII</option>
-          <option value="9">class IX</option>
-          <option value="10">class X</option>
-        </select>
-      </div>
-      <div class="col-sm mb-3 mt-3">
-        <select class="form-select" aria-label="Default select example">
-          <option selected>Select the blood group</option>
-          <option value="1"> A+</option>
-          <option value="2">A-</option>
-          <option value="3">AB+</option>
-          <option value="4">AB-</option>
-          <option value="5">B+</option>
-          <option value="6">B-</option>
-          <option value="7">O+</option>
-          <option value="8">O-</option>
-        </select>
-      </div>
     </div>
 
 
@@ -87,28 +65,20 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <br>
-    <div align="right">
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-
-  </form>
+  <%end %>
 </div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
