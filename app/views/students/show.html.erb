@@ -1,1 +1,51 @@
-<h1 align="center" style="margin-bottom: 100px"><%=@student.first_name.capitalize%> <%=@student.last_name.capitalize%></h1>
+<div class="container">
+  <h1 align="center" style="margin-top: 90px; margin-bottom: 50px"><%=@student.first_name.capitalize%> <%=@student.last_name.capitalize%></h1>
+
+
+
+<!--  card starts here-->
+  <center>
+    <div class="card border-success text-center" style="width: 50rem">
+      <div class="card-header">
+        Basic details
+      </div>
+      <div class="card-body text-success">
+        <p class="card-text">First name: <%=@student.first_name %></p>
+        <p class="card-text">Last name: <%=@student.last_name %></p>
+        <p class="card-text">Address: <%=@student.address %></p>
+        <p class="card-text">Email: <%=@student.email %></p>
+        <p class="card-text">Contact number: <%=@student.contact_number %></p>
+        <p class="card-text">Mother name: <%=@student.mother_name %></p>
+        <p class="card-text">Father name: <%=@student.father_name %></p>
+        <p class="card-text">Dat of birth: <%=@student.date_of_birth %></p>
+        <p class="card-text">Class: <%=@student.standard %></p>
+        <p class="card-text">Blood group: <%=@student.blood_group %></p>
+      </div>
+      <div class="card-footer text-muted">
+        2 days ago
+      </div>
+    </div>
+  </center>
+  <center>
+    <div class="card border-success text-center" style="width: 50rem">
+      <div class="card-header">
+        Basic details
+      </div>
+      <div class="card-body text-success">
+        <p class="card-text">First name: <%=@student.first_name %></p>
+        <p class="card-text">Last name: <%=@student.last_name %></p>
+        <p class="card-text">Address: <%=@student.address %></p>
+        <p class="card-text">Email: <%=@student.email %></p>
+        <p class="card-text">Contact number: <%=@student.contact_number %></p>
+        <p class="card-text">Mother name: <%=@student.mother_name %></p>
+        <p class="card-text">Father name: <%=@student.father_name %></p>
+        <p class="card-text">Dat of birth: <%=@student.date_of_birth %></p>
+        <p class="card-text">Class: <%=@student.standard %></p>
+        <p class="card-text">Blood group: <%=@student.blood_group %></p>
+      </div>
+      <div class="card-footer text-muted">
+        2 days ago
+      </div>
+    </div>
+  </center>
+</div>

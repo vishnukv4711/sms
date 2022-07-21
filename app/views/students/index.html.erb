@@ -1,4 +1,4 @@
-<h1 align="center">Students listing page</h1>
+<h1 align="center" style="margin-top: 90px; margin-bottom: 50px">Students listing page</h1>
 
 <div class="container">
   <table class="table">
@@ -8,7 +8,7 @@
         <th scope="col">First name</th>
         <th scope="col">Last name</th>
         <th scope="col">Standard</th>
-        <th scope="col", colspan="2"></th>
+        <th scope="col", colspan="3"></th>
       </tr>
     </thead>
     <tbody>
@@ -17,17 +17,31 @@
           <th scope="row"><%=student.id %></th>
           <td><%=student.first_name.capitalize %></td>
           <td><%=student.last_name.capitalize %></td>
-          <td><%=student.standard.capitalize %></td>
-          <td role="group" aria-label="Basic outlined example">
-            <a href=<%=student_path(student)%> , class="btn btn-outline-success">
-              <i class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></i> Show
-            </a>
+          <td><%=student.standard.camelize %></td>
+          <td>
+            <%=link_to 'show', student_path(student), class: "btn btn-outline-success"%>
           </td>
-          <td role="group" aria-label="Basic outlined example">
-            <a href=<%=edit_student_path(student)%> , class="btn btn-outline-warning">
-              <i class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></i> edit
-            </a>
+          <td>
+            <%=link_to 'edit', edit_student_path(student), class: "btn btn-outline-warning"%>
           </td>
+          <td>
+            <%=link_to 'delete', student_path(student), method: :delete, class: "btn btn-outline-danger", data: {confirm: "Are you sure you want to delete \"#{student.first_name}\" ?"}%>
+          </td>
+<!--          <td role="group" aria-label="Basic outlined example">-->
+<!--            <a href=<%#=student_path(student)%> , class="btn btn-outline-success">-->
+<!--              <i class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></i> Show-->
+<!--            </a>-->
+<!--          </td>-->
+<!--          <td role="group" aria-label="Basic outlined example">-->
+<!--            <a href=<%#=edit_student_path(student)%> , class="btn btn-outline-warning">-->
+<!--              <i class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></i> edit-->
+<!--            </a>-->
+<!--          </td>-->
+<!--          <td role="group" aria-label="Basic outlined example">-->
+<!--            <a data-method="delete" href=<%#=student_path(student)%> , class="btn btn-outline-danger">-->
+<!--              <i class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></i> delete-->
+<!--            </a>-->
+<!--          </td>-->
         </tr>
       <%end %>
     </tbody>

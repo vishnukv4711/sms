@@ -5,7 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/students_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/students_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/student.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/student.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/_nav.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/_nav.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/students/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/students/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/students/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/students/new.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,7 +151,8 @@
       <workItem from="1658119768536" duration="14727000" />
       <workItem from="1658143805335" duration="4174000" />
       <workItem from="1658206136161" duration="22158000" />
-      <workItem from="1658293627659" duration="15854000" />
+      <workItem from="1658293627659" duration="19423000" />
+      <workItem from="1658380129242" duration="2960000" />
     </task>
     <servers />
   </component>

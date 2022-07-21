@@ -1,0 +1,82 @@
+<div class="container">
+
+  <%#=form_with(scope: :student, url: students_path method: :post, local: true) do |f| %>
+  <%=form_with(model: @student, local: true) do |f| %>
+
+    <div class="row mb-3">
+
+      <div class="col-md-6">           <!--first col takes 5 grid-->
+        <%=f.label :first_name, "*First name", class: "col-form-label"%>
+        <%=f.text_field :first_name, class: "form-control form-control-lg"%>
+      </div>
+      <div class="col-md-6">
+        <%=f.label :last_name, "*Last name", class: "col-form-label"%>
+        <%=f.text_field :last_name, class: "form-control form-control-lg"%>
+      </div>
+
+
+
+      <div class="col-md-12">
+        <%=f.label :address, "*Address",class: "col-form-label"%>
+        <%=f.text_area :address, class: "form-control form-control-lg"%>
+      </div>
+
+
+
+      <div class="col-md-9">
+        <%=f.label :email, "*Email",class: "col-form-label" %>
+        <%=f.text_field :email, class: "form-control form-control-lg"%>
+      </div>
+      <div class="col-md-3">
+        <%=f.label :contact_number, "*Contact number", class: "col-form-label"%>
+        <%=f.text_field :contact_number, class: "form-control form-control-lg"%>
+      </div>
+
+
+
+      <div class="col-md-5">
+        <%=f.label :mother_name, "Mother name",class: "col-form-label"%>
+        <%=f.text_field :mother_name, class: "form-control form-control-lg"%>
+      </div>
+      <div class="col-md-5">
+        <%=f.label :father_name, class: "col-form-label"%>
+        <%=f.text_field :father_name, class: "form-control form-control-lg"%>
+      </div>
+      <div class="col-md-2">
+        <%=f.label :date_of_birth, "*Date of birth",class: "col-form-label"%>
+        <%= f.date_field :date_of_birth, class: "form-control form-control-lg"%>
+      </div>
+
+
+
+      <div class="col-md-6 mt-4 mb-5">
+        <%= f.select :standard, ["select the standard", "standard I", "standard II", "standard III", "standard IV",\
+                                 "standard V", "standard VI", "standard VII", "standard VIII", "standard IX", "standard X"], class:"form-select"%>
+      </div>
+      <div class="col-md-6 mt-4 mb-5">
+        <%= f.select :blood_group, ["select blood group", "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"], class:"form-select"%>
+      </div>
+
+
+      <div align="right">
+        <%=link_to 'cancel', :back, class: "btn btn-outline-danger"%>
+        <%=f.submit class: "btn btn-outline-success"%> <br>
+      </div>
+
+    </div>
+  <%end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

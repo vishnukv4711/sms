@@ -1,0 +1,18 @@
+<% if notice %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <p align="center"><%= notice %></p>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+<%elsif alert %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <%if alert.class == Array %>
+      <%alert.each do |a| %>
+        <p align="center"><%= a %></p>
+      <%end %>
+    <%else %>
+      <p align="center"><%= alert %></p>
+    <%end %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% end %>
