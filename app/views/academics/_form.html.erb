@@ -1,0 +1,124 @@
+<div class="container">
+
+  <%=form_with(model: @academic, local: true) do |f| %>
+
+
+    <table class="table table-hover table-borderless">
+      <thead class=" table-primary" style="padding-bottom: 30px">
+        <tr>
+          <th scope="col" colspan="2">Exam type</th>
+          <th scope="col">Maths</th>
+          <th scope="col">Science</th>
+          <th scope="col">Social</th>
+          <th scope="col">Computer science</th>
+          <th scope="col">English</th>
+        </tr>
+      </thead>
+      <tbody>
+        <div class="row">
+          <tr>
+            <th scope="row" colspan="2">
+              <%=f.text_field :exam_type, class: "form-control form-control-lg", value: "Half yearly", disabled: true%>
+            </th>
+            <td>
+              <div class="col-md-12">
+                <%=f.text_field :maths, class: "form-control form-control-lg" %>
+              </div>
+            </td>
+            <td>
+              <div class="col-md-12">
+                <%=f.text_field :science, class: "form-control form-control-lg" %>
+              </div>
+            </td>
+            <td>
+              <div class="col-md-12">
+                <%=f.text_field :social, class: "form-control form-control-lg" %>
+              </div>
+            </td>
+            <td>
+              <div class="col-md-12">
+                <%=f.text_field :computer, class: "form-control form-control-lg" %>
+              </div>
+            </td>
+            <td>
+              <div class="col-md-12">
+                <%=f.text_field :english, class: "form-control form-control-lg" %>
+              </div>
+            </td>
+<!--            <td>-->
+              <%#= f.number_field :student_id, value: @student.id, type: :hidden %>
+<!--            </td>-->
+
+          </tr>
+
+<!--          <tr>-->
+<!--            <th scope="row" colspan="2">Quarterly</th>-->
+<!--            <td>-->
+<!--              <div class="col-md-12">-->
+                <%#=f.text_field :maths, class: "form-control form-control-lg" %>
+<!--              </div>-->
+<!--            </td>-->
+<!--            <td>-->
+<!--              <div class="col-md-12">-->
+                <%#=f.text_field :science, class: "form-control form-control-lg" %>
+<!--              </div>-->
+<!--            </td>-->
+<!--            <td>-->
+<!--              <div class="col-md-12">-->
+                <%#=f.text_field :social, class: "form-control form-control-lg" %>
+<!--              </div>-->
+<!--            </td>-->
+<!--            <td>-->
+<!--              <div class="col-md-12">-->
+                <%#=f.text_field :computer, class: "form-control form-control-lg" %>
+<!--              </div>-->
+<!--            </td>-->
+<!--            <td>-->
+<!--              <div class="col-md-12">-->
+                <%#=f.text_field :english, class: "form-control form-control-lg" %>
+<!--              </div>-->
+<!--            </td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <th scope="row" colspan="2">Annual</th>-->
+<!--            <td>-->
+<!--              <div class="col-md-12">-->
+                <%#=f.text_field :maths, class: "form-control form-control-lg" %>
+<!--              </div>-->
+<!--            </td>-->
+<!--            <td>-->
+<!--              <div class="col-md-12">-->
+                <%#=f.text_field :science, class: "form-control form-control-lg" %>
+<!--              </div>-->
+<!--            </td>-->
+<!--            <td>-->
+<!--              <div class="col-md-12">-->
+                <%#=f.text_field :social, class: "form-control form-control-lg" %>
+<!--              </div>-->
+<!--            </td>-->
+<!--            <td>-->
+<!--              <div class="col-md-12">-->
+                <%#=f.text_field :computer, class: "form-control form-control-lg" %>
+<!--              </div>-->
+<!--            </td>-->
+<!--            <td>-->
+<!--              <div class="col-md-12">-->
+                <%#=f.text_field :english, class: "form-control form-control-lg" %>
+<!--              </div>-->
+<!--            </td>-->
+<!--          </tr>-->
+        </div>
+      </tbody>
+    </table>
+    <div align="right">
+      <%=f.submit (@academic.new_record? ? "submit" : "update marks"), class: "btn btn-outline-success" %>
+    </div>
+
+
+
+
+
+
+  <%end %>
+
+</div>

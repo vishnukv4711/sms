@@ -60,7 +60,7 @@
 
       <div align="right">
         <%=link_to 'cancel', :back, class: "btn btn-outline-danger"%>
-        <%=f.submit class: "btn btn-outline-success"%> <br>
+        <%=f.submit (@student.new_record? ? "add student" : "update details"), class: "btn btn-outline-success"%> <br>
       </div>
 
     </div>

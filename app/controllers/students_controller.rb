@@ -4,7 +4,9 @@ class StudentsController < ApplicationController
 
 
   def index
+    session[:student_id] = nil
     @students = Student.all
+    # debugger
   end
 
   def new
@@ -27,6 +29,8 @@ class StudentsController < ApplicationController
   end
 
   def show
+    session[:student_id] = @student.id
+    # debugger
   end
 
   def edit

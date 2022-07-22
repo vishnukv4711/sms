@@ -5,8 +5,8 @@
 
 <!--  card starts here-->
   <center>
-    <div class="card border-success text-center" style="width: 50rem">
-      <div class="card-header">
+    <div class=" card border-success text-center mt-3" style="width: 50rem">
+      <div class="card-header mb-5">
         Basic details
       </div>
       <div class="card-body text-success">
@@ -20,32 +20,27 @@
         <p class="card-text">Dat of birth: <%=@student.date_of_birth %></p>
         <p class="card-text">Class: <%=@student.standard %></p>
         <p class="card-text">Blood group: <%=@student.blood_group %></p>
-      </div>
-      <div class="card-footer text-muted">
-        2 days ago
+        <div class=" d-grid col-12 gap-2 d-md-flex justify-content-md-end">
+          <%=link_to 'edit', edit_student_path(@student), class: "btn btn-outline-warning", style:"--bs-btn-padding-y: .8rem; --bs-btn-padding-x: 3rem; --bs-btn-font-size: 1.4rem;"%>
+<!--          <button class="btn btn-primary me-md-2" type="button">Button</button>-->
+        </div>
       </div>
     </div>
   </center>
+
   <center>
-    <div class="card border-success text-center" style="width: 50rem">
+    <div class="card border-success text-center mt-5 mb-5" style="width: 50rem">
       <div class="card-header">
-        Basic details
+        Academic details
       </div>
       <div class="card-body text-success">
-        <p class="card-text">First name: <%=@student.first_name %></p>
-        <p class="card-text">Last name: <%=@student.last_name %></p>
-        <p class="card-text">Address: <%=@student.address %></p>
-        <p class="card-text">Email: <%=@student.email %></p>
-        <p class="card-text">Contact number: <%=@student.contact_number %></p>
-        <p class="card-text">Mother name: <%=@student.mother_name %></p>
-        <p class="card-text">Father name: <%=@student.father_name %></p>
-        <p class="card-text">Dat of birth: <%=@student.date_of_birth %></p>
-        <p class="card-text">Class: <%=@student.standard %></p>
-        <p class="card-text">Blood group: <%=@student.blood_group %></p>
-      </div>
-      <div class="card-footer text-muted">
-        2 days ago
+        <%if @student.academics.exam_type == nil %>
+          <%=link_to 'add half yearly', new_academic_path, class: "btn btn-outline-success" %>
+        <%else %>
+          show table
+        <%end %>
       </div>
     </div>
   </center>
 </div>
+<br><br><br><br>
