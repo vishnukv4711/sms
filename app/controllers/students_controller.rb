@@ -14,8 +14,9 @@ class StudentsController < ApplicationController
   end
 
   def create
+    # debugger
     @student = Student.new(student_params)
-    if @student.first_name != ""                  #@student.date_of_birth.year.to_s shows Nilclass error otherwise
+    if @student.first_name != ""  &&  @student.last_name != "" && @student.date_of_birth != nil                #@student.date_of_birth.year.to_s shows Nilclass error otherwise
       password = @student.first_name[0,2].upcase + @student.last_name[0,2].upcase + @student.date_of_birth.year.to_s
       @student.password = password
     end

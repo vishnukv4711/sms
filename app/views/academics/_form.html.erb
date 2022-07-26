@@ -7,42 +7,78 @@
       <thead class=" table-primary" style="padding-bottom: 30px">
         <tr>
           <th scope="col" colspan="2">Exam type</th>
+          <th scope="col">English</th>
           <th scope="col">Maths</th>
           <th scope="col">Science</th>
           <th scope="col">Social</th>
           <th scope="col">Computer science</th>
-          <th scope="col">English</th>
         </tr>
       </thead>
       <tbody>
         <div class="row">
           <tr>
-            <th scope="row" colspan="2">
-              <%=f.text_field :exam_type, class: "form-control form-control-lg", value: "Half yearly", disabled: true%>
-            </th>
+            <%#if @student.academics.count == 0%>
+
+<!--              <th scope="row" colspan="2">-->
+                <%#=f.text_field :exam_type, class: "form-control form-control-lg", value: "Quarterly", readonly: true%>
+<!--              </th>-->
+
+<!--            <%#elsif @student.academics. %>>-->
+
+
+
+
+<!--            <th>-->
+<!--              <div class="col-md-6 mt-4 mb-5" >-->
+                <%#= f.select :exam_type, ["select the academy","quarterly".capitalize, "half-yearly".capitalize, "annual".capitalize], class:"form-select form-select-sm"%>
+<!--              </div>-->
+<!--            </th>-->
+
+
+
+
+
+            <%#debugger %>
+            <%if params[:exam_type] == 'quarterly' %>
+              <th scope="row" colspan="2">
+                <%=f.text_field :exam_type, class: "form-control form-control-lg", value: "Quarterly", readonly: true%>
+              </th>
+            <%elsif params[:exam_type] == 'half-yearly' %>
+              <th scope="row" colspan="2">
+                <%=f.text_field :exam_type, class: "form-control form-control-lg", value: "Half-yearly", readonly: true%>
+              </th>
+            <%elsif params[:exam_type]  == 'annual' %>
+              <th scope="row" colspan="2">
+                <%=f.text_field :exam_type, class: "form-control form-control-lg", value: "Annual", readonly: true%>
+              </th>
+            <%end %>
+
+
+
+
             <td>
               <div class="col-md-12">
-                <%=f.text_field :maths, class: "form-control form-control-lg" %>
+                <%=f.text_field :english, class: "form-control form-control-lg", value: 0 %>
               </div>
             </td>
             <td>
               <div class="col-md-12">
-                <%=f.text_field :science, class: "form-control form-control-lg" %>
+                <%=f.text_field :maths, class: "form-control form-control-lg", value: 0 %>
               </div>
             </td>
             <td>
               <div class="col-md-12">
-                <%=f.text_field :social, class: "form-control form-control-lg" %>
+                <%=f.text_field :science, class: "form-control form-control-lg", value: 0 %>
               </div>
             </td>
             <td>
               <div class="col-md-12">
-                <%=f.text_field :computer, class: "form-control form-control-lg" %>
+                <%=f.text_field :social, class: "form-control form-control-lg", value: 0 %>
               </div>
             </td>
             <td>
               <div class="col-md-12">
-                <%=f.text_field :english, class: "form-control form-control-lg" %>
+                <%=f.text_field :computer, class: "form-control form-control-lg", value: 0 %>
               </div>
             </td>
 <!--            <td>-->
@@ -51,72 +87,14 @@
 
           </tr>
 
-<!--          <tr>-->
-<!--            <th scope="row" colspan="2">Quarterly</th>-->
-<!--            <td>-->
-<!--              <div class="col-md-12">-->
-                <%#=f.text_field :maths, class: "form-control form-control-lg" %>
-<!--              </div>-->
-<!--            </td>-->
-<!--            <td>-->
-<!--              <div class="col-md-12">-->
-                <%#=f.text_field :science, class: "form-control form-control-lg" %>
-<!--              </div>-->
-<!--            </td>-->
-<!--            <td>-->
-<!--              <div class="col-md-12">-->
-                <%#=f.text_field :social, class: "form-control form-control-lg" %>
-<!--              </div>-->
-<!--            </td>-->
-<!--            <td>-->
-<!--              <div class="col-md-12">-->
-                <%#=f.text_field :computer, class: "form-control form-control-lg" %>
-<!--              </div>-->
-<!--            </td>-->
-<!--            <td>-->
-<!--              <div class="col-md-12">-->
-                <%#=f.text_field :english, class: "form-control form-control-lg" %>
-<!--              </div>-->
-<!--            </td>-->
-<!--          </tr>-->
-<!--          <tr>-->
-<!--            <th scope="row" colspan="2">Annual</th>-->
-<!--            <td>-->
-<!--              <div class="col-md-12">-->
-                <%#=f.text_field :maths, class: "form-control form-control-lg" %>
-<!--              </div>-->
-<!--            </td>-->
-<!--            <td>-->
-<!--              <div class="col-md-12">-->
-                <%#=f.text_field :science, class: "form-control form-control-lg" %>
-<!--              </div>-->
-<!--            </td>-->
-<!--            <td>-->
-<!--              <div class="col-md-12">-->
-                <%#=f.text_field :social, class: "form-control form-control-lg" %>
-<!--              </div>-->
-<!--            </td>-->
-<!--            <td>-->
-<!--              <div class="col-md-12">-->
-                <%#=f.text_field :computer, class: "form-control form-control-lg" %>
-<!--              </div>-->
-<!--            </td>-->
-<!--            <td>-->
-<!--              <div class="col-md-12">-->
-                <%#=f.text_field :english, class: "form-control form-control-lg" %>
-<!--              </div>-->
-<!--            </td>-->
-<!--          </tr>-->
+
         </div>
       </tbody>
     </table>
     <div align="right">
+      <%#debugger %>
       <%=f.submit (@academic.new_record? ? "submit" : "update marks"), class: "btn btn-outline-success" %>
     </div>
-
-
-
-
 
 
   <%end %>

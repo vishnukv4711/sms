@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 align="center" style="margin-top: 90px; margin-bottom: 50px"><%=@student.first_name.capitalize%> <%=@student.last_name.capitalize%></h1>
+  <h1 align="center" style="margin-top: 90px; margin-bottom: 50px; display: grid"><%=@student.first_name.capitalize%> <%=@student.last_name.capitalize%></h1>
 
 
 
@@ -21,7 +21,7 @@
         <p class="card-text">Class: <%=@student.standard %></p>
         <p class="card-text">Blood group: <%=@student.blood_group %></p>
         <div class=" d-grid col-12 gap-2 d-md-flex justify-content-md-end">
-          <%=link_to 'edit', edit_student_path(@student), class: "btn btn-outline-warning", style:"--bs-btn-padding-y: .8rem; --bs-btn-padding-x: 3rem; --bs-btn-font-size: 1.4rem;"%>
+          <%=link_to 'edit', edit_student_path(@student), class: "btn btn-outline-warning", style:"--bs-btn-padding-y: .01rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1.4rem;"%>
 <!--          <button class="btn btn-primary me-md-2" type="button">Button</button>-->
         </div>
       </div>
@@ -29,18 +29,69 @@
   </center>
 
   <center>
-    <div class="card border-success text-center mt-5 mb-5" style="width: 50rem">
+    <div class="card border-success text-center mt-5 mb-5" style="width: 62%" >
       <div class="card-header">
         Academic details
       </div>
       <div class="card-body text-success">
-        <%if @student.academics.exam_type == nil %>
-          <%=link_to 'add half yearly', new_academic_path, class: "btn btn-outline-success" %>
+        <%#debugger %>
+        <%if @student.academics.count == 0 %>
+          <%=link_to 'add quarterly', new_academic_path(exam_type: 'quarterly'), class: "btn btn-outline-success" %>
         <%else %>
-          show table
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Exam type</th>
+                <th>English</th>
+                <th>Maths</th>
+                <th>Science</th>
+                <th>Social</th>
+                <th>Computer</th>
+                <th>Total</th>
+                <th>Percentage</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%@student.academics.each do |academy| %>
+                <tr>
+                  <%#debugger %>
+                  <th scope="row"><%=academy.exam_type %></th>
+                  <td><%=academy.english %></td>
+                  <td><%=academy.maths %></td>
+                  <td><%=academy.science %></td>
+                  <td><%=academy.social %></td>
+                  <td><%=academy.computer %></td>
+                  <%total = academy.english + academy.maths + academy.science + academy.social + academy.computer %>
+                  <td><%=total %></td>
+                  <td><%=((total/500)*100).round(3) %>%</td>
+                  <%if (total/500)*100 < 45 %>
+                    <td style="color: #B00100">Fail</td>
+                  <%else %>
+                    <td style="color: green">Pass</td>
+                  <%end %>
+                </tr>
+              <%end %>
+            </tbody>
+          </table>
+          <%#=link_to 'update quarterly', edit_academic_path(@student.academics[0].id) , class: "btn btn-outline-success" %>
+          <%=link_to 'update quarterly',edit_academic_path(exam_type: 'quarterly') , class: "btn btn-outline-success" %>
+          <%if @student.academics.count == 1 %>
+            <%=link_to 'add half-yearly', new_academic_path(exam_type: 'half-yearly'), class: "btn btn-outline-success"%>
+          <%elsif @student.academics.count >= 2 %>
+            <%=link_to 'update half-yearly', edit_academic_path(exam_type: 'half-yearly'), class: "btn btn-outline-success"%>
+          <%end %>
+          <% if @student.academics.count == 2%>
+            <%=link_to 'add annual', new_academic_path(exam_type: 'annual'), class: "btn btn-outline-success"%>
+          <%elsif @student.academics.count > 2%>
+              <%=link_to 'update annual', edit_academic_path(exam_type: 'annual'), class: "btn btn-outline-success"%>
+          <%end %>
         <%end %>
       </div>
     </div>
   </center>
+</div>
+<div align="right">
+  <%=link_to 'delete student', student_path(@student), class: "btn btn-outline-danger", style: "margin-right: 50px", data: {confirm: "Are you sure you want to delete '#{@student.first_name.capitalize}'"}%>
 </div>
 <br><br><br><br>

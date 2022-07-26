@@ -6,5 +6,5 @@ class Student < ApplicationRecord
   validates :first_name,:last_name,:date_of_birth, presence: true
   has_many :user_students
   has_many :users, through: :user_students
-  has_many :academics
+  has_many :academics, dependent: :destroy
 end
