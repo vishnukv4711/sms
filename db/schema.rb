@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_19_063833) do
+ActiveRecord::Schema.define(version: 2022_07_27_093715) do
 
   create_table "academics", force: :cascade do |t|
     t.string "exam_type"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 2022_07_19_063833) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "standard_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "standard_id"
+  end
+
+  create_table "standards", force: :cascade do |t|
+    t.string "standard"
+  end
+
   create_table "students", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -38,12 +47,12 @@ ActiveRecord::Schema.define(version: 2022_07_19_063833) do
     t.text "address"
     t.integer "contact_number"
     t.date "date_of_birth"
-    t.string "standard"
     t.string "blood_group"
     t.string "mother_name"
     t.string "father_name"
     t.string "first_name"
     t.string "last_name"
+    t.integer "standard_id"
     t.index ["email"], name: "index_students_on_email", unique: true
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
   end
@@ -62,6 +71,7 @@ ActiveRecord::Schema.define(version: 2022_07_19_063833) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_admin?", default: false
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

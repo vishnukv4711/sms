@@ -6,9 +6,13 @@
       <change beforePath="$PROJECT_DIR$/app/controllers/academics_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/academics_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/students_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/students_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/student.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/student.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/academics/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/academics/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/academics/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/academics/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/_nav.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/_nav.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/students/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/students/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/students/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/students/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/students/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/students/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,6 +169,8 @@
       <workItem from="1658383604348" duration="18309000" />
       <workItem from="1658465589287" duration="22405000" />
       <workItem from="1658741967928" duration="10772000" />
+      <workItem from="1658810893927" duration="22585000" />
+      <workItem from="1658897321756" duration="19218000" />
     </task>
     <servers />
   </component>

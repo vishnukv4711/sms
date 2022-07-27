@@ -1,0 +1,23 @@
+<div class="container">
+  <%=form_with(model: @user, local: true) do |f| %>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <%=f.label :name, class: "col-form-label" %>
+        <%=f.text_field :name, class: "form-control form-control-lg" %>
+      </div>
+      <div class="col-md-6 mb-3">
+        <%=f.label :email, "*Email", class: "col-form-label" %>
+        <%=f.email_field :email, class: "form-control form-control-lg"%>
+      </div>
+      <div class="col-md-12">
+        <%=f.label :standard_id, "Standard", class: "col-form-label" %>
+<!--        <div class="col-3">-->
+          <%=f.collection_select(:standard_ids, Standard.all, :id, :standard,{}, { multiple: true, class: "form-select", size: 10})%>
+        </div>
+      </div>
+    </div>
+    <div align="right", style="margin-right: 300px; margin-top: 100px">
+      <%=f.submit (@user.new_record? ? "add user":"update user"), class: "btn btn-outline-success" %>
+    </div>
+  <% end %>
+</div>

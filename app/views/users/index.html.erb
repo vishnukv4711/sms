@@ -1,0 +1,35 @@
+<h1 align="center", style="margin-top: 90px; margin-bottom: 50px">Teachers</h1>
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr class="table-dark">
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Class</th>
+        <th scope="col", colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%@users.each do |user| %>
+        <tr>
+          <th scope="row"><%=user.id %></th>
+          <td><%=user.name %></td>
+          <%if user.is_admin? %>
+            <td>NA</td>
+          <%else %>
+            <td>
+              <%user.standards.each do |s| %>
+                <%=s.standard.camelize %>
+                <br>
+              <%end %>
+            </td>
+          <%end %>
+          <td><%=link_to 'show', user_path(user), class: "btn btn-outline-success" %></td>
+          <td><%=link_to 'edit', '#', class: "btn btn-outline-warning" %></td>
+          <td><%=link_to 'delete', '#', class: "btn btn-outline-danger" unless user.is_admin? == true%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

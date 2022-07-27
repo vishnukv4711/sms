@@ -50,16 +50,17 @@
 
 
       <div class="col-md-6 mt-4 mb-5">
-        <%= f.select :standard, ["select the standard", "standard I", "standard II", "standard III", "standard IV",\
-                                 "standard V", "standard VI", "standard VII", "standard VIII", "standard IX", "standard X"], class:"form-select"%>
+        <%=f.collection_select :standard_id, Standard.all, :id, :standard, {prompt: "please select the class"}, class: "form-select"%>
       </div>
+
+
       <div class="col-md-6 mt-4 mb-5">
         <%= f.select :blood_group, ["select blood group", "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"], class:"form-select"%>
       </div>
 
 
       <div align="right">
-        <%=link_to 'cancel', :back, class: "btn btn-outline-danger"%>
+        <%=link_to 'cancel', :back, class: "btn btn-outline-dark"%>
         <%=f.submit (@student.new_record? ? "add student" : "update details"), class: "btn btn-outline-success"%> <br>
       </div>
 

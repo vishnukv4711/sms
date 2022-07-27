@@ -67,7 +67,7 @@ class AcademicsController < ApplicationController
   end
 
   def update
-    debugger
+    # debugger
     @academic = Academic.find(params[:id])
     if @academic.update(academic_params)
       flash.notice = "#{@student.first_name}'s #{params[:exam_type]} updated successfully"

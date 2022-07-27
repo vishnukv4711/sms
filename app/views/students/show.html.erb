@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 align="center" style="margin-top: 90px; margin-bottom: 50px; display: grid"><%=@student.first_name.capitalize%> <%=@student.last_name.capitalize%></h1>
+  <h1 align="center" style="margin-top: 90px; margin-bottom: 50px;"><%=@student.first_name.capitalize%> <%=@student.last_name.capitalize%></h1>
 
 
 
@@ -18,7 +18,7 @@
         <p class="card-text">Mother name: <%=@student.mother_name %></p>
         <p class="card-text">Father name: <%=@student.father_name %></p>
         <p class="card-text">Dat of birth: <%=@student.date_of_birth %></p>
-        <p class="card-text">Class: <%=@student.standard %></p>
+        <p class="card-text">Class: <%=@student.standard.standard %></p>
         <p class="card-text">Blood group: <%=@student.blood_group %></p>
         <div class=" d-grid col-12 gap-2 d-md-flex justify-content-md-end">
           <%=link_to 'edit', edit_student_path(@student), class: "btn btn-outline-warning", style:"--bs-btn-padding-y: .01rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1.4rem;"%>
@@ -92,6 +92,7 @@
   </center>
 </div>
 <div align="right">
+  <%=link_to 'back to students list', students_path, class: 'btn btn-outline-dark' %>
   <%=link_to 'delete student', student_path(@student), class: "btn btn-outline-danger", style: "margin-right: 50px", data: {confirm: "Are you sure you want to delete '#{@student.first_name.capitalize}'"}%>
 </div>
 <br><br><br><br>

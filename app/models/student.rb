@@ -7,4 +7,5 @@ class Student < ApplicationRecord
   has_many :user_students
   has_many :users, through: :user_students
   has_many :academics, dependent: :destroy
+  belongs_to :standard
 end
