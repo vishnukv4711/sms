@@ -5,16 +5,24 @@ class StudentsController < ApplicationController
 
   def index
     session[:student_id] = nil
-    @students = Student.all
-    # debugger
+    # if params[:standard] && Standard.find(params[:standard]).students.length != 0
+    if params[:standard]
+      @students = Student.where(standard_id: params[:standard].to_i)
+    else
+      @students = Student.all
+    end
   end
 
   def new
     @student = Student.new
+    if params[:standard]
+      # debugger
+      @student.standard_id = params[:standard].to_i
+    end
   end
 
   def create
-    debugger
+    # debugger
     @student = Student.new(student_params)
     if @student.first_name != ""  &&  @student.last_name != "" && @student.date_of_birth != nil                #@student.date_of_birth.year.to_s shows Nilclass error otherwise
       password = @student.first_name[0,2].upcase + @student.last_name[0,2].upcase + @student.date_of_birth.year.to_s

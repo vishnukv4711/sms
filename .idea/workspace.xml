@@ -3,16 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="ba48bbee-8b66-45ea-90fa-bf8fa033f91b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/academics_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/academics_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/students_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/students_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/student.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/student.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/academics/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/academics/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/home/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/layouts/_nav.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/_nav.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/students/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/students/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/students/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/students/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/students/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/students/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +47,11 @@
     &quot;ruby.rails.projectView.checked&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/home/images" />
+    </key>
+  </component>
   <component name="RunManager" selected="Rails.Development: sms_1">
     <configuration name="Development: sms_1" type="RailsRunConfigurationType" factoryName="Rails">
       <module name="sms_1" />
@@ -170,7 +175,8 @@
       <workItem from="1658465589287" duration="22405000" />
       <workItem from="1658741967928" duration="10772000" />
       <workItem from="1658810893927" duration="22585000" />
-      <workItem from="1658897321756" duration="19218000" />
+      <workItem from="1658897321756" duration="19613000" />
+      <workItem from="1658983189675" duration="21878000" />
     </task>
     <servers />
   </component>

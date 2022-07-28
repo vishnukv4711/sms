@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   def create
     # debugger
     @user = User.new(user_params)
-    @user.password = (0..5).map{("a".."z").to_a[rand(26)]}.join+(0...4).map{rand(10).to_s}.join
+    @user.password = (0..5).map{("a".." z").to_a[rand(26)]}.join+(0...4).map{rand(10).to_s}.join
     if @user.save
       flash.notice = "created account for #{@user.name}"
       redirect_to @user

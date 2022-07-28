@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+.list-group-item:hover{
+    background: lightblue;
+
+}
+
+.sms_img{
+    height: 5px;
+}
+/*style=""*/
