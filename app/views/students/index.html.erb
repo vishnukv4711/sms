@@ -69,6 +69,8 @@
     </table>
     <div align="right" style="padding-top: 50px">
       <%=link_to 'back', :back, class: "btn btn-outline-dark" %>
+      <%=link_to 'add student', new_student_path(standard: params[:standard]), class: "btn btn-outline-success" if params[:standard] %>
+
     </div>
   </div>
 <%end %>

@@ -3,11 +3,12 @@ Rails.application.routes.draw do
     registrations: 'students/registrations'
   }
   devise_for :users, controllers: {
-    registrations: 'users/registrations'
+    sessions: 'users/sessions'
   }
   root 'home#index'
   resources :users
   resources :students
   resources :academics
+  get 'schools', to: "schools#index"
 
 end

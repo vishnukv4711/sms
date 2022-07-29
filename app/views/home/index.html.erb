@@ -1,29 +1,16 @@
-<%#=link_to 'logout', destroy_user_session_path, method: :delete %>
-
-
-
-<!--<div class="container d-flex col-lg-12" style="padding-top: 200px;">-->
-<div class="container d-flex" style="padding-top: 100px; padding-bottom: 200px">
-  <div class="card col-lg-5">
-<!--    <img src="https://www.cicnews.com/wp-content/uploads/2022/01/what-to-know-about-life-in-canada-as-a-student-scotiabank-1200-x-800.jpg.webp" class="card-img" alt="...">-->
-    <img src="https://www.cicnews.com/wp-content/uploads/2022/01/what-to-know-about-life-in-canada-as-a-student-scotiabank-1200-x-800.jpg.webp" class="card-img" alt="...">
-    <div class="card-body">
-<!--      <h5 class="card-title">Card title</h5>-->
-<!--      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-<!--      <a href="#" class="btn btn-primary">Go somewhere</a>-->
-
-      <ul class="list-group list-group-flush text-center">
-        <%@standards.each do |standard| %>
-<!--          <li class="list-group-item"><a href=<%#= %>, style="text-decoration: none"><%#=standard.standard %></a> </li>-->
-          <a href=<%=students_path(standard: "#{standard.id}") %> style =  "text-decoration: none"> <li class="list-group-item" style="border: none; border-bottom: 1px solid lightgrey !important;"><%=standard.standard %></li></a>
-        <% end %>
-      </ul>
+<h1 align="center" style="margin-top: 100px">WELCOME TO STUDENTS MANAGEMENT SYSTEM</h1>
+<div class="row">
+  <div class="col-lg-4"></div>
+  <div class="col-lg-4 text-center" style="padding-top: 100px">
+    <div class="card border-dark" style="">
+      <div class="card-body">
+        <h1 class="card-title" style="padding: 30px 0 ">Login as</h1>
+        <div class="card-body">
+          <%=link_to 'user', new_user_session_path, class: "btn btn-outline-primary"%> <br><br>
+          <%=link_to 'student', new_student_session_path, class: "btn btn-outline-primary"%> <br><br>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="col-lg-2">
-  </div>
-
-
-
+  <div class="col-lg-4"></div>
 </div>

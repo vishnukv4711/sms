@@ -1,9 +1,12 @@
 class StudentsController < ApplicationController
   before_action :set_user, only: [:show, :destroy, :edit, :update]
   # before_action :student_params, only: [:create]
+  before_action :check_user_sign_in
+
 
 
   def index
+    debugger
     session[:student_id] = nil
     # if params[:standard] && Standard.find(params[:standard]).students.length != 0
     if params[:standard]
@@ -14,6 +17,7 @@ class StudentsController < ApplicationController
   end
 
   def new
+    # debugger
     @student = Student.new
     if params[:standard]
       # debugger
@@ -72,5 +76,7 @@ class StudentsController < ApplicationController
   def student_params
     params.require(:student).permit(:first_name, :last_name, :address, :email, :contact_number, :mother_name, :father_name, :date_of_birth, :standard_id, :blood_group)
   end
+
+
 
 end
