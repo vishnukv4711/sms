@@ -1,12 +1,13 @@
 class StudentsController < ApplicationController
+  before_action :check_user_sign_in
+  before_action :teacher_check, except: [:index, :show]
   before_action :set_user, only: [:show, :destroy, :edit, :update]
   # before_action :student_params, only: [:create]
-  before_action :check_user_sign_in
 
 
 
   def index
-    debugger
+    # debugger
     session[:student_id] = nil
     # if params[:standard] && Standard.find(params[:standard]).students.length != 0
     if params[:standard]
@@ -33,8 +34,18 @@ class StudentsController < ApplicationController
       @student.password = password
     end
     if @student.save
+      # User.where(is_admin?: true)[0].students << @student  #all students are associated with principal so that it will pass the teacher_check
+      # Standard.find(params[:student][:standard_id]).students << @student
+      # debugger
+      Standard.find(params[:student][:standard_id]).users.each do |user|
+        user.students << @student
+      end
       flash.notice = "student created"
-      redirect_to students_path(@student)
+      if current_user.is_admin?
+        redirect_to students_path(@student)
+      else
+        redirect_to current_user
+      end
     else
       flash.alert = @student.errors.full_messages
       redirect_to new_student_path
@@ -47,6 +58,7 @@ class StudentsController < ApplicationController
   end
 
   def edit
+    # debugger
   end
 
 
@@ -55,8 +67,8 @@ class StudentsController < ApplicationController
       flash.notice = "#{@student.first_name}'s details updated successfully"
       redirect_to @student
     else
-      flash.alert = ["Something prevented the student from getting updated", "please make sure you fill all the required details"]
-      redirect_to students_path
+      flash.alert = @student.errors.full_messages
+      redirect_to edit_student_path(@student)
     end
   end
 
@@ -75,6 +87,31 @@ class StudentsController < ApplicationController
 
   def student_params
     params.require(:student).permit(:first_name, :last_name, :address, :email, :contact_number, :mother_name, :father_name, :date_of_birth, :standard_id, :blood_group)
+  end
+
+  def teacher_check
+    # debugger
+    if params[:id]  #params[:id] will be nil for new and create
+      unless current_user.students.include? Student.find(params[:id])
+        flash.alert = "such changes can be made only by admins or respective teacher"
+        redirect_to users_path
+      end
+    end
+
+    # debugger
+    if params[:action] == "new" && params[:standard]
+      unless current_user.standard_ids.include? params[:standard].to_i
+        flash.alert = "you can't add students into #{Standard.find(params[:standard]).standard.camelize}"
+        redirect_to current_user
+      end
+    elsif params[:action] == "create"
+      unless current_user.standard_ids.include? params[:student][:standard_id].to_i
+        flash.alert = "you can't add students into #{Standard.find(params[:student][:standard_id].to_i).standard.camelize}"
+        redirect_to current_user
+      end
+    end
+
+
   end
 
 

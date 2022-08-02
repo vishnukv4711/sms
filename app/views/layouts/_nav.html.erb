@@ -1,37 +1,51 @@
 <nav class="navbar navbar-dark navbar-expand-lg" style="background-color: black; padding-bottom: 15px; padding-top: 15px;">
 <!--<nav class="navbar navbar-dark" style="background-color: #e3f2fd">-->
   <div class="container-fluid">
-    <a class="navbar-brand" href=<%= root_path %>> <%=image_tag "sms.jpg", style: "height: 30px"%> </a>
+    <a class="navbar-brand" href=<%= root_path %>> <%=image_tag "no_background.png", style: "height: 35px;"%> </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href=<%=new_student_path %>>Log in</a></li>
-            <li><a class="dropdown-item" href=<%=new_user_path %>>Add user</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
+        <%if user_signed_in? %>
+          <%if current_user.is_admin? %>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/users">Teachers</a>
+            </li>
+          <%end %>
+          <li class="nav-item">
+            <a class="nav-link active" href="/students">Students</a>
+          </li>
+
+          <li class="nav-item">
+  <!--          <a class="nav-link active" href=<%#=destroy_user_session_path%>>Logout</a>-->
+            <%=link_to 'Logout', '/users/sign_out', method: :delete, class: "nav-link active"%>
+          </li>
+        <%end %>
+
+<!--        <li class="nav-item dropdown">-->
+<!--          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--            Dropdown-->
+<!--          </a>-->
+<!--          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--            <li><a class="dropdown-item" href=<%#=new_student_path %>>Log in</a></li>-->
+<!--            <li><a class="dropdown-item" href=<%#=new_user_path %>>Add user</a></li>-->
+<!--            <li><hr class="dropdown-divider"></li>-->
+<!--            <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+<!--          </ul>-->
+<!--        </li>-->
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <%if user_signed_in? %>
+        <p style="color: white; margin-top: 15px">you are signed in as
+<!--          <span style="font-weight:bold; text-decoration: underline; color: green"><%#=current_user.name.capitalize%></span> <%#='(admin)' if current_user.is_admin? %></p>-->
+          <span style="font-weight:bold; text-decoration: underline;"><%=link_to "#{current_user.name.capitalize}", current_user, style: "color: green"%></span> <%='(admin)' if current_user.is_admin? %></p>
+    <%end %>
+
+
+<!--      <form class="d-flex" role="search">-->
+<!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
+<!--      </form>-->
     </div>
   </div>
 </nav>

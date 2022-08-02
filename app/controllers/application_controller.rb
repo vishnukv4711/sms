@@ -8,8 +8,20 @@ class ApplicationController < ActionController::Base
   end
 
   def admin_check
-    # c
-    #
+    unless current_user.is_admin?
+      flash.alert = "only admin can perform such tasks"
+      # debugger
+      redirect_to users_path
+    end
   end
+
+  def intended_user
+    unless current_user.id == params[:id].to_i || current_user.is_admin?
+      flash.alert = "only #{User.find(params[:id]).name} can do that operation"
+      redirect_to users_path
+    end
+  end
+
+
 
 end

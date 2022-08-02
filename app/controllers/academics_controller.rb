@@ -1,4 +1,5 @@
 class AcademicsController < ApplicationController
+  before_action :check_user_sign_in
   before_action :set_student
 
 

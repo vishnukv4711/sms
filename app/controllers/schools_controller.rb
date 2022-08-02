@@ -6,4 +6,8 @@ class SchoolsController < ApplicationController
     @standards = Standard.all
   end
 
+  def search
+    debugger
+  end
+
 end

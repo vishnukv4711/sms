@@ -1,17 +1,33 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:show]
+  before_action :check_user_sign_in
+  before_action :intended_user, only: [:edit, :update]
+  before_action :admin_check, only: [:new, :create, :destroy]
+  before_action :set_user, except: [:index, :new, :create]
+  before_action :nullify_student_session
 
 
   def index
-    # debugger
-    # @users = User.where(is_admin?:  false)
-    @users = User.all
+    @users = User.all if current_user.is_admin?
+    @users = User.where(is_admin?:  false) unless current_user.is_admin?
   end
 
   def show
-    # debugger
+  end
 
+  def edit
+    # debugger
+  end
+
+  def update
+    debugger
+    if @user.update(user_params)
+      flash.notice = "#{@user.name}'s details updated successfully"
+      redirect_to @user
+    else
+      flash.alert = @user.errors.full_messages
+      redirect_to edit_user_path(@user)
+    end
   end
 
 
@@ -20,9 +36,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    # debugger
+    debugger
     @user = User.new(user_params)
-    @user.password = (0..5).map{("a".." z").to_a[rand(26)]}.join+(0...4).map{rand(10).to_s}.join
+    # @user.password = (0..5).map{("a".." z").to_a[rand(26)]}.join+(0...4).map{rand(10).to_s}.join
+    @user.password = "password"
+    params[:user][:standard_ids].each do |s|
+      @user.student_ids << Standard.find(s).students.ids unless s.length == 0
+    end
     if @user.save
       flash.notice = "created account for #{@user.name}"
       redirect_to @user
@@ -30,6 +50,12 @@ class UsersController < ApplicationController
       flash.alert = @user.errors.full_messages
       redirect_to new_user_path
     end
+  end
+
+  def destroy
+    flash.alert = "#{@user.name} deleted successfully"
+    @user.destroy
+    redirect_to students_path
   end
 
   private
@@ -40,6 +66,10 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def nullify_student_session
+    session[:student_id] = nil
   end
 
 end

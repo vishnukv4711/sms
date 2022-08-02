@@ -28,8 +28,10 @@
           <th scope="col">Id</th>
           <th scope="col">First name</th>
           <th scope="col">Last name</th>
-          <th scope="col">Standard</th>
-          <th scope="col", colspan="3"></th>
+          <%unless params[:standard] %>
+            <th scope="col">Standard</th>
+          <%end %>
+          <th scope="col", colspan="4"></th>
         </tr>
       </thead>
       <tbody>
@@ -38,39 +40,37 @@
             <th scope="row"><%=student.id %></th>
             <td><%=student.first_name.capitalize %></td>
             <td><%=student.last_name.capitalize %></td>
-            <td><%=student.standard.standard.camelize %></td>
+            <td><%=student.standard.standard.camelize unless params[:standard]%></td>
             <td>
               <%=link_to 'show', student_path(student), class: "btn btn-outline-success"%>
             </td>
-            <td>
-              <%=link_to 'edit', edit_student_path(student), class: "btn btn-outline-warning"%>
-            </td>
-            <td>
-              <%=link_to 'delete', student_path(student), method: :delete, class: "btn btn-outline-danger", data: {confirm: "Are you sure you want to delete \"#{student.first_name}\" ?"}%>
-            </td>
-  <!--          <td role="group" aria-label="Basic outlined example">-->
-  <!--            <a href=<%#=student_path(student)%> , class="btn btn-outline-success">-->
-  <!--              <i class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></i> Show-->
-  <!--            </a>-->
-  <!--          </td>-->
-  <!--          <td role="group" aria-label="Basic outlined example">-->
-  <!--            <a href=<%#=edit_student_path(student)%> , class="btn btn-outline-warning">-->
-  <!--              <i class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></i> edit-->
-  <!--            </a>-->
-  <!--          </td>-->
-  <!--          <td role="group" aria-label="Basic outlined example">-->
-  <!--            <a data-method="delete" href=<%#=student_path(student)%> , class="btn btn-outline-danger">-->
-  <!--              <i class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></i> delete-->
-  <!--            </a>-->
-  <!--          </td>-->
+            <%if current_user.standard_ids.include? student.standard.id %>
+              <td>
+                <%=link_to 'edit', edit_student_path(student), class: "btn btn-outline-warning"%>
+              </td>
+              <td>
+                <%=link_to 'delete', student_path(student), method: :delete, class: "btn btn-outline-danger", data: {confirm: "Are you sure you want to delete \"#{student.first_name}\" ?"}%>
+              </td>
+            <%else %>
+              <td>
+                <%=link_to 'edit', edit_student_path(student), class: "btn btn-outline-dark disabled"%>
+              </td>
+              <td>
+                <%=link_to 'delete', student_path(student), method: :delete, class: "btn btn-outline-dark disabled", data: {confirm: "Are you sure you want to delete \"#{student.first_name}\" ?"}%>
+              </td>
+            <%end %>
+
           </tr>
         <%end %>
       </tbody>
     </table>
     <div align="right" style="padding-top: 50px">
       <%=link_to 'back', :back, class: "btn btn-outline-dark" %>
-      <%=link_to 'add student', new_student_path(standard: params[:standard]), class: "btn btn-outline-success" if params[:standard] %>
-
+      <%if params[:standard] %>
+        <%=link_to 'add student', new_student_path(standard: params[:standard]), class: "btn btn-outline-success"%>
+      <%else %>
+        <%=link_to 'add student', new_student_path, class: "btn btn-outline-success"%>
+      <%end %>
     </div>
   </div>
 <%end %>
