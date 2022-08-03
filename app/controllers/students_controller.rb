@@ -1,5 +1,7 @@
 class StudentsController < ApplicationController
+  # before_action :check_student_sign_in, only: [:show]
   before_action :check_user_sign_in
+  before_action :valid_standard_check, only: [:create, :update]
   before_action :teacher_check, except: [:index, :show]
   before_action :set_user, only: [:show, :destroy, :edit, :update]
   # before_action :student_params, only: [:create]
@@ -27,12 +29,13 @@ class StudentsController < ApplicationController
   end
 
   def create
-    # debugger
+    debugger
     @student = Student.new(student_params)
-    if @student.first_name != ""  &&  @student.last_name != "" && @student.date_of_birth != nil                #@student.date_of_birth.year.to_s shows Nilclass error otherwise
-      password = @student.first_name[0,2].upcase + @student.last_name[0,2].upcase + @student.date_of_birth.year.to_s
-      @student.password = password
-    end
+    # if @student.first_name != ""  &&  @student.last_name != "" && @student.date_of_birth != nil                #@student.date_of_birth.year.to_s shows Nilclass error otherwise
+    #   password = @student.first_name[0,2].upcase + @student.last_name[0,2].upcase + @student.date_of_birth.year.to_s
+    #   @student.password = password
+    # end
+    @student.password = "password"
     if @student.save
       # User.where(is_admin?: true)[0].students << @student  #all students are associated with principal so that it will pass the teacher_check
       # Standard.find(params[:student][:standard_id]).students << @student
@@ -41,11 +44,12 @@ class StudentsController < ApplicationController
         user.students << @student
       end
       flash.notice = "student created"
-      if current_user.is_admin?
-        redirect_to students_path(@student)
-      else
-        redirect_to current_user
-      end
+      redirect_to @student
+      # if current_user.is_admin?
+      #   redirect_to students_path(@student)
+      # else
+      #   redirect_to current_user
+      # end
     else
       flash.alert = @student.errors.full_messages
       redirect_to new_student_path
@@ -53,8 +57,8 @@ class StudentsController < ApplicationController
   end
 
   def show
+    debugger
     session[:student_id] = @student.id
-    # debugger
   end
 
   def edit
@@ -63,7 +67,12 @@ class StudentsController < ApplicationController
 
 
   def update
+    debugger
     if @student.update(student_params)
+      @student.user_ids = []
+      Standard.find(params[:student][:standard_id]).users.each do |user|
+        user.students << @student
+      end
       flash.notice = "#{@student.first_name}'s details updated successfully"
       redirect_to @student
     else
@@ -90,7 +99,7 @@ class StudentsController < ApplicationController
   end
 
   def teacher_check
-    # debugger
+    debugger
     if params[:id]  #params[:id] will be nil for new and create
       unless current_user.students.include? Student.find(params[:id])
         flash.alert = "such changes can be made only by admins or respective teacher"
@@ -110,8 +119,18 @@ class StudentsController < ApplicationController
         redirect_to current_user
       end
     end
+  end
 
 
+  def valid_standard_check
+    debugger
+    if params[:student][:standard_id].to_i == 0
+      flash.alert = "please select a valid standard"
+      redirect_to request.referer
+    elsif params[:student][:blood_group] == "select blood group"
+      flash.alert = "please select a valid blood group"
+      redirect_to request.referer
+    end
   end
 
 

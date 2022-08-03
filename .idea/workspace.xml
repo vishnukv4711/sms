@@ -5,17 +5,17 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/academics_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/academics_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/schools_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/schools_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/students/sessions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/students/sessions_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/students_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/students_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/users/sessions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users/sessions_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/student.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/student.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/_nav.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/_nav.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/schools/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/schools/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/students/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/students/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/home/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/students/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/students/show.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/users/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +182,8 @@
       <workItem from="1658983189675" duration="22220000" />
       <workItem from="1659070425353" duration="16640000" />
       <workItem from="1659329896994" duration="19616000" />
-      <workItem from="1659416297700" duration="19588000" />
+      <workItem from="1659416297700" duration="19905000" />
+      <workItem from="1659504492060" duration="20423000" />
     </task>
     <servers />
   </component>
@@ -190,6 +191,6 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/sms_1@Development__sms_1.rcov" NAME="Development: sms_1 Coverage Results" MODIFIED="1658754909134" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="sms_1" />
+    <SUITE FILE_PATH="coverage/sms_1@Development__sms_1.rcov" NAME="Development: sms_1 Coverage Results" MODIFIED="1659509181329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="sms_1" />
   </component>
 </project>

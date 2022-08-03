@@ -21,7 +21,8 @@
         <p class="card-text">Class: <%=@student.standard.standard %></p>
         <p class="card-text">Blood group: <%=@student.blood_group %></p>
         <div class=" d-grid col-12 gap-2 d-md-flex justify-content-md-end">
-          <%=link_to 'edit', edit_student_path(@student), class: "btn btn-outline-warning", style:"--bs-btn-padding-y: .01rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1.4rem;"%>
+          <%=link_to 'edit', edit_student_path(@student), class: "btn btn-outline-warning", style:"--bs-btn-padding-y: .01rem; --bs-btn-padding-x: 1rem;
+           --bs-btn-font-size: 1.4rem;" if @student.user_ids.include? current_user.id || current_user.is_admin?%>
 <!--          <button class="btn btn-primary me-md-2" type="button">Button</button>-->
         </div>
       </div>
@@ -36,7 +37,8 @@
       <div class="card-body text-success">
         <%#debugger %>
         <%if @student.academics.count == 0 %>
-          <%=link_to 'add quarterly', new_academic_path(exam_type: 'quarterly'), class: "btn btn-outline-success" %>
+          <%=link_to 'add quarterly', new_academic_path(exam_type: 'quarterly'),
+                     class: "btn btn-outline-success" if @student.user_ids.include? current_user.id || current_user.is_admin?%>
         <%else %>
           <table class="table table-hover">
             <thead>
@@ -75,24 +77,27 @@
             </tbody>
           </table>
           <%#=link_to 'update quarterly', edit_academic_path(@student.academics[0].id) , class: "btn btn-outline-success" %>
-          <%=link_to 'update quarterly',edit_academic_path(exam_type: 'quarterly') , class: "btn btn-outline-success" %>
-          <%if @student.academics.count == 1 %>
-            <%=link_to 'add half-yearly', new_academic_path(exam_type: 'half-yearly'), class: "btn btn-outline-success"%>
-          <%elsif @student.academics.count >= 2 %>
-            <%=link_to 'update half-yearly', edit_academic_path(exam_type: 'half-yearly'), class: "btn btn-outline-success"%>
-          <%end %>
-          <% if @student.academics.count == 2%>
-            <%=link_to 'add annual', new_academic_path(exam_type: 'annual'), class: "btn btn-outline-success"%>
-          <%elsif @student.academics.count > 2%>
-              <%=link_to 'update annual', edit_academic_path(exam_type: 'annual'), class: "btn btn-outline-success"%>
+          <%if @student.user_ids.include? current_user.id || current_user.is_admin? %>
+            <%=link_to 'update quarterly',edit_academic_path(exam_type: 'quarterly') , class: "btn btn-outline-success" %>
+            <%if @student.academics.count == 1 %>
+              <%=link_to 'add half-yearly', new_academic_path(exam_type: 'half-yearly'), class: "btn btn-outline-success"%>
+            <%elsif @student.academics.count >= 2 %>
+              <%=link_to 'update half-yearly', edit_academic_path(exam_type: 'half-yearly'), class: "btn btn-outline-success"%>
+            <%end %>
+            <% if @student.academics.count == 2%>
+              <%=link_to 'add annual', new_academic_path(exam_type: 'annual'), class: "btn btn-outline-success"%>
+            <%elsif @student.academics.count > 2%>
+                <%=link_to 'update annual', edit_academic_path(exam_type: 'annual'), class: "btn btn-outline-success"%>
+            <%end %>
           <%end %>
         <%end %>
       </div>
     </div>
   </center>
 </div>
-<div align="right">
-  <%=link_to 'back to students list', students_path, class: 'btn btn-outline-dark' %>
-  <%=link_to 'delete student', student_path(@student), class: "btn btn-outline-danger", style: "margin-right: 50px", data: {confirm: "Are you sure you want to delete '#{@student.first_name.capitalize}'"}%>
+<div align="right" style="margin-right: 50px">
+  <%=link_to 'back', :back, class: 'btn btn-outline-dark' %>
+  <%=link_to 'delete student', student_path(@student), method: :delete, class: "btn btn-outline-danger", style: "margin-right: 50px",
+             data: {confirm: "Are you sure you want to delete '#{@student.first_name.capitalize}'"} if @student.user_ids.include? current_user.id || current_user.is_admin? %>
 </div>
 <br><br><br><br>

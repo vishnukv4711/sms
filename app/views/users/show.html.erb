@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 align="center" style="margin-top: 90px; margin-bottom: 50px;"><%=@user.name.capitalize%></h1>
+  <h1 align="center" style="margin-top: 90px; margin-bottom: 50px;"><%=@user.name.capitalize %></h1>
   <%=@user.password %>
   <table class="table table-hover" style="margin-top: 20px">
     <thead>
@@ -24,5 +24,10 @@
   </table>
   <div align="right">
     <%=link_to 'back', :back, class: "btn btn-outline-dark" %>
+    <%if current_user == @user || current_user.is_admin? %>
+      <%=link_to 'edit profile', edit_user_path, class: "btn btn-outline-warning" %>
+    <%else %>
+      <%=link_to 'edit profile', edit_user_path, class: "btn btn-outline-dark disabled" %>
+    <%end %>
   </div>
 </div>

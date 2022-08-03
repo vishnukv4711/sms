@@ -1,6 +1,7 @@
 class AcademicsController < ApplicationController
   before_action :check_user_sign_in
   before_action :set_student
+  before_action :academic_crud
 
 
   def new
@@ -47,7 +48,7 @@ class AcademicsController < ApplicationController
     # debugger
     if @academic.save
       flash.notice = "academics created for #{Student.find(session[:student_id]).first_name}"
-      redirect_to students_path
+      redirect_to @student
     else
       flash.alert = "something went wrong"
       redirect_to students_path

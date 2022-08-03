@@ -11,7 +11,7 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    # super                #some error happened with this on, render is happening inside devise and render and redirect can't be used for same action
+    # super           #we want different pages to be rendered for admin and user, but super already has a redirect which will create issue with our custom redirect
     if user_signed_in?
       if current_user.is_admin?
         redirect_to schools_path

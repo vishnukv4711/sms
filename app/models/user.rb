@@ -5,9 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :name, presence: true, length: {minimum: 4, maximum: 15}
   validates :standard_ids, presence: true
-  validates :student_ids, presence: true
-  has_many :user_students
+  # validates :student_ids, presence: true
+  has_many :user_students, dependent: :destroy
   has_many :students, through: :user_students
-  has_many :standard_users
+  has_many :standard_users, dependent: :destroy
   has_many :standards, through: :standard_users
 end

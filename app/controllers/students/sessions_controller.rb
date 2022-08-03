@@ -9,14 +9,21 @@ class Students::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    # super
+    if student_signed_in?
+      flash.notice = "welcome #{current_student.first_name}"
+      redirect_to student_path(current_student.id)
+    else
+      flash.alert = "invalid email or password"
+      redirect_to new_student_session_path
+    end
+  end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    super
+  end
 
   # protected
 
